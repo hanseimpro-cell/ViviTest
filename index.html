@@ -100,17 +100,28 @@
 <body>
   <div id="app">
     <header style="text-align:center; padding:20px; margin:0; background:url('pics/header.jpg'); background-size:cover; background-position:center; color:black;">
-      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+      <div style="display:flex; flex-direction:row; align-items:center; justify-content:center; gap:40px;">
 
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <h1 style="margin:0; color:#222;">{{ name }}</h1>
-          <p style="margin:5px 0 0 0; font-size:20px; color:#444;">{{ subtitle }}</p>
-        </div>
+        
 
-        <div style="display:flex; flex-direction:row; gap:15px; font-size:18px; text-align:left;">
-          <router-link to="/coaching" class="menu-link" active-class="active-link">Coaching</router-link>
-          
-        </div>
+        <div style="display:flex; flex-direction:row; gap:40px; align-items:center;">
+  <!-- Linke Seite: Werdegang -->
+  <div>
+    <router-link to="/" class="menu-link" active-class="active-link">Werdegang</router-link>
+  </div>
+
+  <!-- Mitteltext bleibt -->
+  <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    <h1 style="margin:0; color:#222;">{{ name }}</h1>
+    <p style="margin:5px 0 0 0; font-size:20px; color:#444;">{{ subtitle }}</p>
+  </div>
+
+  <!-- Rechte Seite: Links & Coaching -->
+  <div style="display:flex; flex-direction:row; gap:15px;">
+    <router-link to="/links" class="menu-link" active-class="active-link">Links</router-link>
+    <router-link to="/coaching" class="menu-link" active-class="active-link">Coaching</router-link>
+  </div>
+</div>
       </div>
 
       <div style="position:absolute; top:20px; right:20px; display:flex; gap:10px;">
