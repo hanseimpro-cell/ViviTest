@@ -70,10 +70,32 @@
       opacity:1 !important;
     }
       @media (max-width: 768px) {
-      header div[style*="display:flex"] {
-        flex-direction: column !important;
-        gap: 10px !important;
-      }
+  header {
+    padding: 15px !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  header > div {
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+  .container {
+    width: 95% !important;
+    margin: 10px auto !important;
+    padding: 10px !important;
+  }
+  h1 { font-size: 22px !important; }
+  p { font-size: 16px !important; }
+  .menu-link { font-size: 18px !important; opacity:1 !important; }
+  header img[style*="width:20px"] {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  header div[style*="position:absolute"] {
+    top: 10px !important;
+    right: 10px !important;
+  }
+}
       .container {
         width: 90% !important;
         margin: 10px auto !important;
@@ -87,7 +109,7 @@
 </head>
 <body>
   <div id="app">
-    <header style="text-align:center; padding:20px; margin:0; background:url('pics/header.jpg'); background-size:cover; background-position:center; color:black;">
+    <header style="text-align:center; padding:20px; margin:0; background:url('./pics/Header.jpg'); background-size:cover; background-position:center; color:black;">
       <div style="display:flex; justify-content:center; align-items:center; gap:40px;">
         <div style="display:flex; flex-direction:row; gap:15px; font-size:18px; text-align:right;">
           <router-link to="/" class="menu-link" active-class="active-link">Werdegang</router-link>
