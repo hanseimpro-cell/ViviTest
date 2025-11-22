@@ -49,25 +49,32 @@
     }
 
     .menu-link {
-      color:black;
+      color:#222;
       text-decoration:none;
-      opacity:0.8;
-      transition:0.2s ease;
+      opacity:0.85;
+      padding:3px 8px;
+      border-radius:4px;
+      background:transparent;
+      transition:0.25s ease;
+      border-bottom:2px solid transparent;
+    
     }
-
-    .menu-link:hover {
-      opacity: 1;
-      text-decoration: underline;
+      .menu-link:hover {
+      opacity:1;
+      border-bottom:2px solid #888;
+      text-decoration:none;
     }
 
     .active-link {
       font-weight:bold;
-      border-bottom:2px solid #ffccff;
       opacity:1 !important;
-      color:black !important;
+      background:transparent;
+      border:none;
+      border-bottom:2px solid #222;
+      color:#000 !important;
     }
 
-    .container {
+.container {
       max-width: 900px;
       margin: 30px auto;
       padding: 20px;
@@ -93,30 +100,42 @@
 <body>
   <div id="app">
     <header style="text-align:center; padding:20px; margin:0; background:url('pics/header.jpg'); background-size:cover; background-position:center; color:black;">
-      <div style="display:flex; justify-content:center; align-items:center; gap:40px;">
-        <div style="display:flex; flex-direction:row; gap:15px; font-size:18px; text-align:right;">
-          <router-link to="/" class="menu-link" active-class="active-link">Werdegang</router-link>
-          <router-link to="/links" class="menu-link" active-class="active-link">Links</router-link>
-
-        </div>
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
 
         <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <h1 style="margin:0;">{{ name }}</h1>
-          <p style="margin:5px 0 0 0; font-size:20px;">{{ subtitle }}</p>
+          <h1 style="margin:0; color:#222;">{{ name }}</h1>
+          <p style="margin:5px 0 0 0; font-size:20px; color:#444;">{{ subtitle }}</p>
         </div>
 
         <div style="display:flex; flex-direction:row; gap:15px; font-size:18px; text-align:left;">
           <router-link to="/coaching" class="menu-link" active-class="active-link">Coaching</router-link>
-          <a href="https://www.instagram.com/vivianeVanessae" target="_blank" style="color:black; text-decoration:none; display:flex; align-items:center; gap:6px;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon" style="width:20px; height:20px;" />
-  Instagram
-</a>
+          
         </div>
       </div>
 
       <div style="position:absolute; top:20px; right:20px; display:flex; gap:10px;">
         <img src="https://flagcdn.com/w20/de.png" @click="lang = 'de'" style="cursor:pointer; border-radius:4px;" />
         <img src="https://flagcdn.com/w20/gb.png" @click="lang = 'en'" style="cursor:pointer; border-radius:4px;" />
+      </div>
+
+      <!-- Instagram Icon rechts separat + Liste -->
+      <div style="position:absolute; top:70px; right:20px; display:flex; flex-direction:column; align-items:flex-start; gap:4px;">
+        <!-- EIN Icon direkt vor dem ersten Eintrag -->
+        <a href="https://www.instagram.com/vivianeVanessae" target="_blank" style="color:black; text-decoration:none; display:flex; align-items:center; gap:6px; font-size:16px; font-weight:500;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon" style="width:22px; height:22px;" />
+          @vivianeVanessae
+        </a>
+
+        <!-- Weitere Accounts darunter -->
+        <a href="https://www.instagram.com/actress_daily" target="_blank" style="color:black; text-decoration:none; display:block; font-size:14px; margin-left:28px;">
+          @actress_daily
+        </a>
+        <a href="https://www.instagram.com/theatre_magic" target="_blank" style="color:black; text-decoration:none; display:block; font-size:14px; margin-left:28px;">
+          @theatre_magic
+        </a>
+        <a href="https://www.instagram.com/improv_queen" target="_blank" style="color:black; text-decoration:none; display:block; font-size:14px; margin-left:28px;">
+          @improv_queen
+        </a>
       </div>
 
     </header>
