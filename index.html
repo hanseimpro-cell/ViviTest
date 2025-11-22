@@ -20,7 +20,12 @@
       font-family: "Great Vibes", "Zapfino", "Brush Script MT", cursive;
       font-size: 1.6rem;
       margin-top: -0.3rem;
+    }
+    .nav-link.underline {
       color: #385d73 !important; /* Denim-Blau wie Jacke */
+    }
+    .nav-link.underline:hover {
+      color: #2f3a40 !important; /* dunkler beim Hover */
     }
     hr.custom {
       border: none;
@@ -62,35 +67,30 @@
     <!-- ROUTE TEMPLATES -->
     <div v-if="route === 'home'" class="mt-4 text-center">
       <img src="pics/main.jpg" alt="Portrait" class="img-fluid rounded mb-4" style="max-width:350px;">
-      <h2 v-if="lang==='de'">Willkommen</h2>
-      <h2 v-else>Welcome</h2>
-      <p v-if="lang==='de'">Dies ist die Hauptseite.</p>
-      <p v-else>This is the home page.</p>
+      <h2>{{ t.homeTitle }}</h2>
+      <p>{{ t.homeText }}</p>
     </div>
 
     <!-- Existing routes -->
     <div v-if="route === 'business'" class="mt-4">
       <h2>{{ t.business }}</h2>
-      <p v-if="lang==='de'">Inhalt für Business…</p>
-      <p v-else>Content for Business…</p>
+      <p>{{ t.businessText }}</p>
     </div>
 
     <div v-if="route === 'act'" class="mt-4">
       <h2>{{ t.act }}</h2>
-      <p v-if="lang==='de'">Inhalt für Schauspiel…</p>
-      <p v-else>Content for Acting…</p>
+      <p>{{ t.actText }}</p>
     </div>
 
     <div v-if="route === 'projected'" class="mt-4">
       <h2>{{ t.projected }}</h2>
-      <p v-if="lang==='de'">Inhalt für Projekte…</p>
-      <p v-else>Content for Projects…</p>
+      <p>{{ t.projectedText }}</p>
     </div>
 
     <hr class="custom" />
 
     <div class="position-absolute top-0 end-0 mt-3 me-3">
-      <button class="btn btn-outline-secondary btn-sm d-flex align-items-center" @click="toggleLang" style="font-size:1.4rem;">
+      <button onmouseover="this.style.background='transparent'" onmouseenter="this.style.background='transparent'" onfocus="this.style.background='transparent'" class="btn btn-outline-secondary btn-sm d-flex align-items-center border-0 shadow-none bg-transparent" @click="toggleLang" style="font-size:1.76rem; pointer-events:auto;">
         <span v-if="lang === 'de'">🇬🇧</span>
         <span v-else>🇩🇪</span>
       </button>
@@ -110,12 +110,22 @@
             de: {
               business: 'Business',
               act: 'Schauspiel/Impro',
-              projected: 'Projekte'
+              projected: 'Projekte',
+              homeTitle: 'Willkommen',
+              homeText: 'Dies ist die Hauptseite.',
+              businessText: 'Inhalt für Business…',
+              actText: 'Inhalt für Schauspiel…',
+              projectedText: 'Inhalt für Projekte…'
             },
             en: {
               business: 'Business',
               act: 'Acting/Impro',
-              projected: 'Projects'
+              projected: 'Projects',
+              homeTitle: 'Welcome',
+              homeText: 'This is the home page.',
+              businessText: 'Content for Business…',
+              actText: 'Content for Acting…',
+              projectedText: 'Content for Projects…'
             }
           }
         }
