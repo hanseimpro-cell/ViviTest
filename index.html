@@ -22,7 +22,7 @@
     }
 
     header {
-      background: url('pics/header.jpg') center/cover no-repeat;
+      background: url('pics/Header.jpg') center/cover no-repeat;
       color: black;
       padding: 30px 0;
       position: relative;
@@ -53,10 +53,29 @@
     }
 
     @media (max-width: 768px) {
-      /* Instagram-Block: Nur Symbole auf Mobile */
+      /* Instagram-Block: nur Symbole */
       .insta-block a span {
         display: none !important;
       }
+      .insta-block a img {
+        width: 28px !important;
+        height: 28px !important;
+      }
+      .insta-block a {
+        margin-left: 0 !important;
+      }
+
+      /* Router-Links unter Überschrift anzeigen */
+      header .row.justify-content-between {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+      header .row.justify-content-between > div {
+        width: 100% !important;
+        justify-content: center !important;
+        margin-bottom: 10px;
+      }
+    }
       .insta-block a img {
         width: 28px !important;
         height: 28px !important;
