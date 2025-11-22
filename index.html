@@ -49,6 +49,25 @@
       border-radius: 6px;
       border: 1px solid #ccc;
     }
+      .active-link {
+      font-weight: bold;
+      border-bottom: 2px solid #ffccff;
+    }
+      .menu-link {
+      color:white;
+      text-decoration:none;
+      opacity:0.7;
+      transition:0.2s ease;
+    }
+    .menu-link:hover {
+      opacity:1;
+      text-decoration:underline;
+    }
+    .active-link {
+      font-weight:bold;
+      border-bottom:2px solid #ffccff;
+      opacity:1 !important;
+    }
   </style>
 </head>
 <body>
@@ -56,9 +75,9 @@
     <header style="text-align:center; padding:40px; margin-left:0; background:#333; color:white;">
       <div style="display:flex; justify-content:center; align-items:center; gap:40px;">
         <div style="display:flex; flex-direction:row; gap:15px; font-size:18px; text-align:right;">
-          <router-link to="/" style="color:white; text-decoration:none;">Werdegang</router-link>
-          <router-link to="/links" style="color:white; text-decoration:none;">Links</router-link>
-          <router-link to="/coaching" style="color:white; text-decoration:none;">Coaching</router-link>
+          <router-link to="/" class="menu-link" active-class="active-link">Werdegang</router-link>
+          <router-link to="/links" class="menu-link" active-class="active-link">Links</router-link>
+          <router-link to="/coaching" class="menu-link" active-class="active-link">Coaching</router-link>
         </div>
 
         <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
@@ -107,7 +126,7 @@ const TEXTS = {
 <script>
   const Werdegang = {
     template: `
-      <div>
+        <div style="text-align:center;">
         <h2>Werdegang</h2>
         <p>{{ biography }}</p>
       </div>
