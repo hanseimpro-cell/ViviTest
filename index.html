@@ -12,9 +12,9 @@
 <body>
     <div id="app">
         <header class="topbar">
-            <div class="brand">
+            <a class="brand" href="#/">
                 Törn e.V.
-            </div>
+            </a>
         </header>
 
         <nav class="fixed-menu">
@@ -32,60 +32,128 @@
                 </span>
             </button>
 
-            <a class="menu-link" href="#kontakt">
+            <a class="menu-link" href="#/kontakt">
                 {{ texts[language].menu.contact }}
             </a>
 
-            <a class="menu-link" href="#ueber-uns">
+            <a class="menu-link" href="#/ueber-uns">
                 {{ texts[language].menu.about }}
             </a>
         </nav>
 
-        <section class="hero">
-            <div class="presented">
-                {{ texts[language].presented }}
-            </div>
-
-            <h1>
-                {{ texts[language].headline }}
-            </h1>
-
-            <div class="subtitle">
-                {{ texts[language].subtitle }}
-            </div>
-        </section>
-
-        <section class="cards">
-            <a
-                v-for="link in texts[language].links"
-                :key="link.name"
-                :href="link.href"
-                class="card"
-                :style="{ backgroundImage: `url('${link.image}')` }"
-            >
-                <div class="card-content">
-                    <div class="card-title">
-                        {{ link.name }}
+        <main>
+            <section v-if="currentRoute === '/'" class="home-view">
+                <section class="hero">
+                    <div class="presented">
+                        {{ texts[language].presented }}
                     </div>
 
-                    <div class="card-description">
-                        {{ link.description }}
+                    <h1>
+                        {{ texts[language].headline }}
+                    </h1>
+
+                    <div class="subtitle">
+                        {{ texts[language].subtitle }}
+                    </div>
+                </section>
+
+                <section class="cards">
+                    <a
+                        v-for="link in texts[language].links"
+                        :key="link.route"
+                        :href="'#' + link.route"
+                        class="card"
+                        :style="{ backgroundImage: `url('${link.image}')` }"
+                    >
+                        <div class="card-content">
+                            <div class="card-title">
+                                {{ link.name }}
+                            </div>
+
+                            <div class="card-description">
+                                {{ link.description }}
+                            </div>
+                        </div>
+                    </a>
+                </section>
+            </section>
+
+            <section v-else class="page-view">
+                <a class="back-link" href="#/">
+                    {{ texts[language].backHome }}
+                </a>
+
+                <div
+                    v-if="currentPage"
+                    class="page-hero"
+                    :style="{ backgroundImage: `url('${currentPage.image}')` }"
+                >
+                    <div class="page-hero-content">
+                        <div class="page-kicker">
+                            {{ texts[language].presented }}
+                        </div>
+
+                        <h1>
+                            {{ currentPage.name }}
+                        </h1>
+
+                        <p>
+                            {{ currentPage.description }}
+                        </p>
                     </div>
                 </div>
-            </a>
-        </section>
+
+                <article v-if="currentPage" class="page-content">
+                    <h2>
+                        {{ currentPage.pageTitle }}
+                    </h2>
+
+                <div
+    class="long-text"
+    v-html="currentPage.pageText"
+></div>
+
+                    <div class="page-grid">
+                        <div
+                            v-for="item in currentPage.highlights"
+                            :key="item.title"
+                            class="page-info-card"
+                        >
+                            <h3>
+                                {{ item.title }}
+                            </h3>
+
+                            <p>
+                                {{ item.text }}
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article v-else class="page-content">
+                    <h1>
+                        {{ texts[language].notFoundTitle }}
+                    </h1>
+
+                    <p>
+                        {{ texts[language].notFoundText }}
+                    </p>
+                </article>
+            </section>
+        </main>
 
         <aside class="social-sidebar">
-       <a class="social-link" href="https://instagram.com" target="_blank" title="Instagram">
-    <img src="png/insta.png" alt="Instagram" width="32" height="32">
-</a>
-       					     <a href="https://facebook.com" target="_blank" title="Facebook">
-    <img src="png/facebook.png" alt="facebook" width="32" height="32">
-</a>
-                 <a href="https://twitter.com" target="_blank" title="Twitter">
-						<img src="png/twitter.png" alt="Instagram" width="32" height="32">
-						</a>
-           
+            <a class="social-link" href="https://instagram.com" target="_blank" title="Instagram">
+                <img src="png/insta.png" alt="Instagram" width="32" height="32">
+            </a>
+
+            <a class="social-link" href="https://facebook.com" target="_blank" title="Facebook">
+                <img src="png/facebook.png" alt="Facebook" width="32" height="32">
+            </a>
+
+            <a class="social-link" href="https://twitter.com" target="_blank" title="Twitter">
+                <img src="png/twitter.png" alt="Twitter" width="32" height="32">
+            </a>
         </aside>
 
         <footer class="main-footer">
@@ -100,14 +168,17 @@
                     </p>
 
                     <div class="footer-social">
-					     <a href="https://facebook.com" target="_blank" title="Facebook">
-    <img src="png/facebook.png" alt="facebook" width="32" height="32">
-</a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook">
+                            <img src="png/facebook.png" alt="Facebook" width="32" height="32">
+                        </a>
+
                         <a href="https://twitter.com" target="_blank" title="Twitter">
-						<img src="png/twitter.png" alt="Instagram" width="32" height="32">
-						</a>
+                            <img src="png/twitter.png" alt="Twitter" width="32" height="32">
+                        </a>
+
                         <a href="https://instagram.com" target="_blank" title="Instagram">
-						    <img src="png/insta.png" alt="Instagram" width="32" height="32"></a>
+                            <img src="png/insta.png" alt="Instagram" width="32" height="32">
+                        </a>
                     </div>
                 </section>
 
@@ -120,34 +191,34 @@
                         {{ texts[language].footer.presentedText }}
                     </p>
 
-                    <a class="footer-button" href="#ueber-uns">
+                    <a class="footer-button" href="#/ueber-uns">
                         {{ texts[language].footer.moreAbout }}
                     </a>
                 </section>
             </div>
 
             <nav class="footer-links">
-                <a href="#ueber-uns">
+                <a href="#/ueber-uns">
                     {{ texts[language].footer.about }}
                 </a>
 
-                <a href="#kontakt">
+                <a href="#/kontakt">
                     {{ texts[language].footer.contact }}
                 </a>
 
-                <a href="#blog">
+                <a href="#/blog">
                     {{ texts[language].footer.blog }}
                 </a>
 
-                <a href="#newsletter">
+                <a href="#/newsletter">
                     {{ texts[language].footer.newsletter }}
                 </a>
 
-                <a href="#datenschutz">
+                <a href="#/datenschutz">
                     {{ texts[language].footer.privacy }}
                 </a>
 
-                <a href="#impressum">
+                <a href="#/impressum">
                     {{ texts[language].footer.legal }}
                 </a>
             </nav>
@@ -163,6 +234,7 @@
             data() {
                 return {
                     language: "de",
+                    currentRoute: window.location.hash.replace("#", "") || "/",
 
                     texts: {
                         de: {
@@ -174,6 +246,9 @@
                             presented: "Törn e.V. präsentiert",
                             headline: "Willkommen in der Welt des Improvisationstheaters",
                             subtitle: "Veranstaltungen, Weiterbildung, Begegnung und kreative Entwicklung an einem Ort.",
+                            backHome: "← Zur Startseite",
+                            notFoundTitle: "Seite nicht gefunden",
+                            notFoundText: "Diese Ansicht existiert aktuell noch nicht.",
 
                             footer: {
                                 festivalTitle: "Törn Impro Festival",
@@ -192,34 +267,134 @@
                             links: [
                                 {
                                     name: "Festival",
-                                    href: "#festival",
+                                    route: "/festival",
                                     image: "png/festivals.jpg",
-                                    description: "Internationale Improvisationskunst erleben."
+                                    description: "Internationale Improvisationskunst erleben.",
+                                    pageTitle: "Festival",
+                                    pageText: "Hier entsteht die zentrale Festival-Seite mit Programm, Künstlerinnen und Künstlern, Spielorten und Tickets.",
+                                    highlights: [
+                                        {
+                                            title: "Programm",
+                                            text: "Alle Shows, Formate und Festivalabende an einem Ort."
+                                        },
+                                        {
+                                            title: "Künstler:innen",
+                                            text: "Internationale Gäste und lokale Ensembles im Überblick."
+                                        },
+                                        {
+                                            title: "Tickets",
+                                            text: "Informationen zu Preisen, Buchung und Festivalpässen."
+                                        }
+                                    ]
                                 },
                                 {
                                     name: "Törn CUP",
-                                    href: "#turncup",
+                                    route: "/toern-cup",
                                     image: "png/turn_cup.png",
-                                    description: "Das Wettkampfformat für Improvisationstheater."
+                                    description: "Das Wettkampfformat für Improvisationstheater.",
+                                    pageTitle: "Törn CUP",
+                                    pageText: "Die Seite für das Wettbewerbsformat, Teams, Regeln, Termine und Ergebnisse.",
+                                    highlights: [
+                                        {
+                                            title: "Teams",
+                                            text: "Alle teilnehmenden Gruppen und Ensembles."
+                                        },
+                                        {
+                                            title: "Regeln",
+                                            text: "Der Ablauf des Cups verständlich erklärt."
+                                        },
+                                        {
+                                            title: "Termine",
+                                            text: "Alle Runden, Shows und Finaltermine."
+                                        }
+                                    ]
                                 },
                                 {
                                     name: "Törn Around",
-                                    href: "#turnaround",
+                                    route: "/toern-around",
                                     image: "png/turn_around.png",
-                                    description: "Austausch, Vernetzung und Inspiration."
+                                    description: "Austausch, Vernetzung und Inspiration.",
+                                    pageTitle: "Törn Around",
+                                    pageText: "Ein Ort für Begegnung, Austausch und Vernetzung rund um Improvisationstheater.",
+                                    highlights: [
+                                        {
+                                            title: "Community",
+                                            text: "Menschen aus der Impro-Szene miteinander verbinden."
+                                        },
+                                        {
+                                            title: "Austausch",
+                                            text: "Gespräche, Impulse und offene Formate."
+                                        },
+                                        {
+                                            title: "Inspiration",
+                                            text: "Neue Perspektiven für Bühne, Training und Zusammenarbeit."
+                                        }
+                                    ]
                                 },
                                 {
                                     name: "Akademie",
-                                    href: "#akademie",
+                                    route: "/akademie",
                                     image: "png/Akademie.jpg",
-                                    description: "Workshops und Weiterbildung."
+                                    description: "Workshops und Weiterbildung.",
+                                    pageTitle: "Akademie",
+                                    pageText: "Die Akademie bündelt Workshops, Trainings und Weiterbildungsangebote.",
+                                    highlights: [
+                                        {
+                                            title: "Workshops",
+                                            text: "Kurse für Einsteiger:innen und Fortgeschrittene."
+                                        },
+                                        {
+                                            title: "Training",
+                                            text: "Kontinuierliche Entwicklung für Bühne und Gruppe."
+                                        },
+                                        {
+                                            title: "Dozent:innen",
+                                            text: "Erfahrene Trainer:innen aus der Impro-Szene."
+                                        }
+                                    ]
                                 },
                                 {
                                     name: "Impro Spirit Retreat",
-                                    href: "#retreat",
+                                    route: "/impro-spirit-retreat",
                                     image: "png/isr.png",
-                                    description: "Entschleunigung und kreative Entwicklung."
+                                    description: "Entschleunigung und kreative Entwicklung.",
+                                    pageTitle: "Entfalte deine Kreativität beim Impro-Spirit-Retreat!",
+                                    pageText: `
+    
+									<p><strong>Entfalte deine Kreativität beim Impro-Spirit-Retreat!</strong></p><p style="font-weight: 400">Bist du bereit, für ein Abenteuer der besonderen Art?</p><p style="font-weight: 400">Vom 14. – 24. September 2026</p><p style="font-weight: 400">tauchen wir in ein einzigartiges 10-tägiges Improvisationstheater-Retreat, das nicht nur deine spielerischen Fähigkeiten fördert, sondern dich auch auf eine transformative Reise zu dir und deiner Kreativität führt.</p><p style="font-weight: 400"><strong>Improtheater auf eine neue Weise erleben</strong></p><p style="font-weight: 400">In unserem Impro-Spirit-Retreat lernst du die Kunst des Improvisationstheaters noch mal auf tiefgreifendere und spielerische Weise kennen.</p><p style="font-weight: 400">Unsere erfahrenen Trainer*innen (weitere Infos weiter unten) begleiten dich auf einem Abenteuer, das dir nicht nur kreative Freiheit schenkt, sondern dir auch hilft, deine Spontaneität in einem ganz besonderen Umfeld zu vertiefen. Ohne Alltagssorgen oder Festival Stress zählt endlich wirklich nur der Moment. Du und das Jetzt.</p><p style="font-weight: 400"><strong>Naturverbundenheit und spirituelle Erlebnisse</strong></p><p style="font-weight: 400">Aber das ist noch nicht alles: Um deine Kreativität zu entfalten, verbinden wir das Improtheater mit der heilsamen Kraft der Natur und dem Feuer der südamerikanischen Kultur!</p><p style="font-weight: 400">Inmitten einer atemberaubenden Landschaft bieten wir dir vielfältige, naturverbundene Aktivitäten – sei es eine meditative und alle Sinne vertiefende Wanderung oder eine intensive „maßgeschneiderte Sound Healing“ Session, Atem – und Körperübungen wie zum Beispiel morgendliche Drum – Yoga Sessions unter freiem Himmel oder Zeit für Reflexion am Lagerfeuer.&nbsp;&nbsp;</p><p style="font-weight: 400"><strong>Kulturelles Kennenlernen und Gemeinschaft</strong></p><p style="font-weight: 400">Außerdem tauchen wir in lokale Traditionen und kreative Ausdrucksformen ein. So zum Beispiel mit einem traditionellen Handwerkskurs oder einem Salsa-Workshop. Da die Gastgeberinnen mit einem kleinen Theater, in Barichara kooperieren, gibt es die Möglichkeit einer abschließenden Werkschau und so der Gemeinschaft vor Ort etwas „zurückzugeben“.</p><p style="font-weight: 400"><strong>Für wen ist dieses Retreat?</strong></p><p style="font-weight: 400">Für alle Schauspieler*innen und Improspieler*innen mit mindestens Basic Spiel- oder&nbsp; Bühnenerfahrungen.&nbsp;</p><p><strong>Impro Kurse/ Trainer*innen&nbsp;</strong></p><p><span style="text-decoration: underline">Tony Beeman</span></p><p>Tony Beeman ist ein erfahrener Improvisationskünstler, Regisseur und Pädagoge aus Seattle, Washington, wo er als künstlerischer Leiter und Bildungsdirektor von Unexpected Productions tätig ist – der ältesten und größten Improvisationsgruppe der Region. In seiner mehr als 25-jährigen Karriere hat Tony in ganz Europa, dem Nahen Osten und Nordamerika gespielt, unterrichtet und Regie geführt. Seine Arbeit zeichnet sich durch sein Bekenntnis zu Theatralik und Aufrichtigkeit aus, wobei er sich auf Improvisation konzentriert, die sich durch Ensemble-Storytelling, poetische Sprache und fundierte Authentizität wie traditionelles Theater anfühlt.</p><p>Seine Show „Four Hearts“, eine improvisierte Hommage an die Werke von Edward Albee, wurde von Theatergruppen in Kanada, Kolumbien und Japan adaptiert.</p><p>In seiner Rolle als Direktor leitet Tony eine der größten Improvisationsschulen der Welt, wo er sich für die Idee einsetzt, dass Improvisation nicht nur eine Performance-Technik ist, sondern ein radikales Werkzeug für zwischenmenschliche Beziehungen. Er glaubt, dass das überzeugendste Theater entsteht, wenn Darsteller ihr authentisches Selbst auf die Bühne bringen und das dieser Kunstform innewohnende „freudige Scheitern” annehmen.</p><p>&nbsp;</p><p><span style="text-decoration: underline">Felipe Ortiz</span></p><p>Felipe ist ein Performer, Regisseur und Lehrer, der sich für den Austausch, die Interaktion, das Spiel und die gemeinsame Erfahrung mit verschiedenen Künstlern weltweit interessiert. Seine Leidenschaft gilt dem Körper in Bewegung und seinen Möglichkeiten, die er durch Akrobatik, Improvisation, Clownerie, physisches Theater und Objektmanipulation erforscht, um neue Ausdrucksformen in der darstellenden Kunst zu schaffen. Seit 2003 tourt er mit verschiedenen Projekten in Festivals, Unternehmen und Künstlerkollaborationen durch die Welt. Er ist in der internationalen Szene als Improvisations-, Körpertheater- und Clownslehrer bekannt.</p><p>Wenn du mehr wissen willst:</p><p><a href="https://www.1felipeortiz.com/about/">About – Felipe Ortiz</a></p><p><span style="text-decoration: underline">Viviane Vanessa</span></p><p>Viviane ist seit über 22 Jahren Improvisationstheater-Performerin. Sie hat Schauspiel studiert, am Westfälischen Landestheater gespielt und ist seit 2011 Mitglied des Impro- und Businesstheater-Ensembles „Steifen Brise“. Sie ist künstlerische Leitung des internationalen Theaterfestival „Törn “, Dozentin an der Hamburger Schule für Comedy und regelmäßig auf nationalen und internationalen Theaterfestivals als Spielerin und Trainerin unterwegs. Neben dem Vorsitz des Törn e.V. schlüpft sie auch in die Regie-Rolle und setzt sich für mehr Generationenvielfalt auf Hamburger Kleinbühnen ein.</p><p><span style="text-decoration: underline">Impro Themen/ Inhalte</span></p><p>Wir arbeiten an:</p><ul><li>“magic realism”</li><li>„find the real connection“</li><li>Physical Impro</li><li>“the four senses”</li></ul><p><span style="text-decoration: underline"><strong>Hier genauere Infos</strong></span></p><p>Die Teilnahmegebühr für das Impro.Spirit.Retreat beträgt 1.550,00 Euro.</p><p>Darin enthalten sind:<br>– Übernachtung in Villa de Leyva<br>– Bustransport von Bogotá nach Barichara und zurück<br>– Verpflegung in unserem Haus „Casa Moais“ in Barichara für die gesamten Tage + Wasser, Kaffee und Tee. Das bedeutet Frühstück, Mittagessen, Abendessen und einige gesunde Snacks, die ihr während der Workshops benötigen könntet (bitte beachtet: an einem Abend werden wir in Barichara ausgehen. Nur dieses Abendessen und das Essen in „Villa de Leyva“ sind nicht inbegriffen)<br>– einfache Unterkunft bei uns in Barichara (es gibt drei verschiedene Optionen, siehe unten, aus denen ihr wählen könnt)<br>– alle Impro-Kurse mit einem MINIMUM von 27 Stunden (es werden definitiv mehr sein) mit&nbsp; verschiedenen, professionellen Lehrer*innen<br>– ein „Vibrationsritual“ (s.g. Klangheilung)<br>– eine intensive „In-Naha“- Ritual<br>– ein Salsa-Kurs<br>– alle zusätzlichen Aktivitäten, die mit Kultur und Natur zu tun haben (z. B. eine geführte meditative Wanderung, eine sensorische Erfahrung in einem Landhaus usw.)</p><p>-eine Drum Yoga Session<br>– eine wunderbare Zeit in einer wunderschönen Landschaft mit magischen Momenten</p><p>(Bitte beachte: Da wir uns vorstellen können, dass internationale Teilnehmer*innen vor oder nach dem Retreat noch rumreisen möchten, ist die Nacht vom 13. auf den 14. Oktober und alles nach dem 24. Oktober nicht inbegriffen).</p><p><strong><span style="text-decoration: underline">Unterkunft</span></strong></p><p>Wir haben <span style="text-decoration: underline">drei</span> unterschiedliche Möglichkeiten.</p><p>Zum einen könnt ihr im Haupthaus übernachten. Dort haben wir ein Drei Bett – Zimmer und ein Vier Bett – Zimmer. (keine Hochbetten) Die Räume befinden sich gleich neben dem Haus in dem wir unsere Mahlzeiten zu uns nehmen und die Impro Klassen und andere Kurse statt finden. Ich habe sicher schon erwähnt, das die Energie an diesem Ort magisch ist! <img draggable="false" role="img" class="emoji" alt="😉" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f609.svg"><br>Für diese Wahl, müssen wir um einen kleinen Kostenaufschlag von 9€ pro Nacht bitten, also insgesamt 81€.</p><p>Für die Menschen, die gerne ein Einzelzimmer haben möchten, haben wir diese Möglichkeit in einem Hostel, ca. 800 Meter entfernt. Allein der Weg dort hin, durchs Grüne, mit Blick auf die Berge ist wundervoll.<br>Es stehen genau vier Einzelzimmer zur Verfügung. Diese sind je für 45€ pro Nacht, also insgesamt 405€ extra zu beziehen.</p><p>Last but not least, haben wir die Möglichkeit in einem Mehrbettzimmer mit Hochbetten im Hostel zu übernachten. Dies ist die kostengünstigste Option. Ohne Aufpreis. Inklusive athemberaubenden Weg zur Unterkunft.</p><p>Wenn du dir ein Bild machen möchtest, vom Ort und weitere Eindrücke brauchst:</p><p><a href="https://www.instagram.com/impro.spirit.retreat/">Impro Spirit Retreats (@impro.spirit.retreat) • Instagram-Fotos und -Videos</a></p><p><span style="text-decoration: underline"><strong>Specials</strong></span></p><p><strong>Vibrational-Ritual</strong></p><p>Mit diesem Ritual eröffnen wir offiziell unser Retreat. In der ersten Stunde werden wir uns darauf konzentrieren, die Absicht, die jede Person mitbringt, in Bewegung zu bringen und zu konkretisieren. Indem wir somatische Praktiken anwenden, die uns helfen, uns mit unseren höchsten „Energiefrequenzen“ zu verbinden – unserem authentischen Selbst. Danach folgt eine Stunde Klangschwingung, die es uns ermöglicht, diese Reise mit der nötigen Offenheit anzutreten, um alle Teile unseres Selbst – Widerstand, Angst, Urteilsvermögen und schöpferische Kraft – anzunehmen und sich ganz auf unsere Absicht auszurichten.</p><p>Dieses Ritual wird von Patricia Macaya geleitet, einer Expertin für Klangheilung und somatische Praktiken.</p><p><strong>IN-NAHA-Ritual</strong></p><p>In-Naha ist eine erholsame somatische Praxis, die mit der verfügbaren Energie des Körpers und der Umgebung arbeitet. In dieser Sitzung werden Sie u.a. erkunden:</p><p>– Stagnierende Energie, die in Ihrem Zellgedächtnis gespeichert ist, loslassen<br>– Wiederherstellung der Verbindung mit Gefühlen von Freude, Ruhe, Vertrauen und Dankbarkeit<br>– Ihr Nervensystem durch somatische Ressourcen zu regulieren<br>– Ihren intuitiven, rezeptiven Kanal jenseits des mentalen Raums öffnen<br>– Verarbeitung von körperlichen Impulsen, die durch traumatische Erfahrungen blockiert wurden<br>Diese Erkundungen werden Ihre Fähigkeiten als Improspieler*in, Schauspieler*in und Performer aller Art unterstützen und verbessern.</p><p>Außerdem wird es</p><p>ein <strong>Salsa Kurs </strong>und <span style="text-decoration: underline">vieles</span> mehr geben..</p><p style="font-weight: 400"><strong>Buch jetzt deinen Platz im ersten Impro-Spirit-Retreat!&nbsp;</strong></p><p style="font-weight: 400"><strong>&nbsp;</strong></p><p style="font-weight: 400">Bei Fragen schreibe uns unter:</p><p style="font-weight: 400"><strong>impro.spirit.retreat@gmail.com</strong></p><p>(Sollte der Registrierungs – Link hier nicht funktionieren, nutze bitte den, der englischen Seite! &lt;3)</p><div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3ec495a" data-id="3ec495a" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c75272f elementor-align-center elementor-widget elementor-widget-button" data-id="c75272f" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class=" button elementor-button elementor-button-link elementor-size-sm" href="https://forms.gle/wnwwWMsmZQ3ECuQU8">
+						<span  class="elementor-button-content-wrapper">
+									<span class="button elementor-button-text">REGISTRIERUNG</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>								
+`,
+                                    highlights: [
+                                        {
+                                            title: "Spririt",
+                                            text: "Raum für Ruhe, Kreativität und intensive Praxis."
+                                        },
+                                        {
+                                            title: "Impro Spirit",
+                                            text: "Improvisation als Haltung und persönliche Ressource."
+                                        },
+                                        {
+                                            title: "Ort & Zeit",
+                                            text: "Informationen zu Termin, Location und Anmeldung."
+                                        }
+                                    ]
                                 }
+                                
                             ]
                         },
 
@@ -232,6 +407,9 @@
                             presented: "Presented by Törn e.V.",
                             headline: "Welcome to the world of improvisational theatre",
                             subtitle: "Events, education, networking and creative growth in one place.",
+                            backHome: "← Back to home",
+                            notFoundTitle: "Page not found",
+                            notFoundText: "This view does not exist yet.",
 
                             footer: {
                                 festivalTitle: "Törn Impro Festival",
@@ -250,33 +428,229 @@
                             links: [
                                 {
                                     name: "Festival",
-                                    href: "#festival",
+                                    route: "/festival",
                                     image: "png/festivals.jpg",
-                                    description: "Experience international improvisational theatre."
+                                    description: "Experience international improvisational theatre.",
+                                    pageTitle: "Festival",
+                                    pageText: "This page will contain programme details, artists, venues and tickets.",
+                                    highlights: [
+                                        {
+                                            title: "Programme",
+                                            text: "All shows, formats and festival nights in one place."
+                                        },
+                                        {
+                                            title: "Artists",
+                                            text: "International guests and local ensembles."
+                                        },
+                                        {
+                                            title: "Tickets",
+                                            text: "Information about prices, booking and festival passes."
+                                        }
+                                    ]
                                 },
                                 {
                                     name: "Törn CUP",
-                                    href: "#turncup",
+                                    route: "/toern-cup",
                                     image: "png/turn_cup.png",
-                                    description: "The competition format for improvisational theatre."
+                                    description: "The competition format for improvisational theatre.",
+                                    pageTitle: "Törn CUP",
+                                    pageText: "The page for the competition format, teams, rules, dates and results.",
+                                    highlights: [
+                                        {
+                                            title: "Teams",
+                                            text: "All participating groups and ensembles."
+                                        },
+                                        {
+                                            title: "Rules",
+                                            text: "The format and process explained clearly."
+                                        },
+                                        {
+                                            title: "Dates",
+                                            text: "All rounds, shows and final dates."
+                                        }
+                                    ]
                                 },
                                 {
                                     name: "Törn Around",
-                                    href: "#turnaround",
+                                    route: "/toern-around",
                                     image: "png/turn_around.png",
-                                    description: "Exchange, networking and inspiration."
+                                    description: "Exchange, networking and inspiration.",
+                                    pageTitle: "Törn Around",
+                                    pageText: "A space for connection, exchange and networking around improvisational theatre.",
+                                    highlights: [
+                                        {
+                                            title: "Community",
+                                            text: "Connecting people from the improv scene."
+                                        },
+                                        {
+                                            title: "Exchange",
+                                            text: "Talks, impulses and open formats."
+                                        },
+                                        {
+                                            title: "Inspiration",
+                                            text: "New perspectives for stage, training and collaboration."
+                                        }
+                                    ]
                                 },
                                 {
                                     name: "Academy",
-                                    href: "#akademie",
-                                    image: "png/Akademie.png",
-                                    description: "Workshops and professional development."
+                                    route: "/akademie",
+                                    image: "png/Akademie.jpg",
+                                    description: "Workshops and professional development.",
+                                    pageTitle: "Academy",
+                                    pageText: "The academy brings together workshops, trainings and development formats.",
+                                    highlights: [
+                                        {
+                                            title: "Workshops",
+                                            text: "Courses for beginners and advanced participants."
+                                        },
+                                        {
+                                            title: "Training",
+                                            text: "Continuous development for stage and ensemble work."
+                                        },
+                                        {
+                                            title: "Teachers",
+                                            text: "Experienced trainers from the improv scene."
+                                        }
+                                    ]
                                 },
                                 {
                                     name: "Impro Spirit Retreat",
-                                    href: "#retreat",
+                                    route: "/impro-spirit-retreat",
                                     image: "png/isr.png",
-                                    description: "Reflection and creative growth."
+                                    description: "Reflection and creative growth.",
+                                    pageTitle: "Impro Spirit Retreat",
+                                    pageText: "A retreat for focus, creative depth and personal development.",
+                                    highlights: [
+                                        {
+                                            title: "Retreat",
+                                            text: "Space for calm, creativity and deep practice."
+                                        },
+                                        {
+                                            title: "Impro Spirit",
+                                            text: "Improvisation as attitude and personal resource."
+                                        },
+                                        {
+                                            title: "Place & Time",
+                                            text: "Information about date, location and registration."
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "Contact",
+                                    route: "/kontakt",
+                                    image: "png/festivals.jpg",
+                                    description: "Contact Törn e.V.",
+                                    pageTitle: "Contact",
+                                    pageText: "This page will contain contact persons, email addresses and a form.",
+                                    highlights: [
+                                        {
+                                            title: "Email",
+                                            text: "General contact and enquiries."
+                                        },
+                                        {
+                                            title: "Press",
+                                            text: "Requests about press, cooperation and communication."
+                                        },
+                                        {
+                                            title: "Join",
+                                            text: "Information for interested people and supporters."
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "About us",
+                                    route: "/ueber-uns",
+                                    image: "png/turn_around.png",
+                                    description: "More about Törn e.V.",
+                                    pageTitle: "About us",
+                                    pageText: "This page will present Törn e.V., the team, the idea and the story.",
+                                    highlights: [
+                                        {
+                                            title: "Association",
+                                            text: "What Törn e.V. stands for."
+                                        },
+                                        {
+                                            title: "Team",
+                                            text: "The people behind festival, academy and projects."
+                                        },
+                                        {
+                                            title: "Mission",
+                                            text: "Promoting, connecting and presenting improvisational theatre."
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "Blog",
+                                    route: "/blog",
+                                    image: "png/festivals.jpg",
+                                    description: "News and stories.",
+                                    pageTitle: "Blog",
+                                    pageText: "News, retrospectives, interviews and stories from the Törn universe.",
+                                    highlights: [
+                                        {
+                                            title: "News",
+                                            text: "Current announcements and updates."
+                                        },
+                                        {
+                                            title: "Interviews",
+                                            text: "Conversations with artists, trainers and guests."
+                                        },
+                                        {
+                                            title: "Retrospectives",
+                                            text: "Impressions from past events."
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "Newsletter",
+                                    route: "/newsletter",
+                                    image: "png/Akademie.jpg",
+                                    description: "News by email.",
+                                    pageTitle: "Newsletter",
+                                    pageText: "This page will contain the newsletter signup.",
+                                    highlights: [
+                                        {
+                                            title: "Updates",
+                                            text: "Programme news, dates and announcements."
+                                        },
+                                        {
+                                            title: "Signup",
+                                            text: "Registration form for the newsletter."
+                                        },
+                                        {
+                                            title: "Archive",
+                                            text: "Past newsletters and announcements."
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "Privacy",
+                                    route: "/datenschutz",
+                                    image: "png/turn_around.png",
+                                    description: "Privacy information.",
+                                    pageTitle: "Privacy",
+                                    pageText: "Privacy information will be added here.",
+                                    highlights: [
+                                        {
+                                            title: "Note",
+                                            text: "Legal content should be reviewed before publication."
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "Legal notice",
+                                    route: "/impressum",
+                                    image: "png/isr.png",
+                                    description: "Legal information.",
+                                    pageTitle: "Legal notice",
+                                    pageText: "Legal notice information will be added here.",
+                                    highlights: [
+                                        {
+                                            title: "Note",
+                                            text: "Legal content should be reviewed before publication."
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -284,9 +658,37 @@
                 };
             },
 
+            computed: {
+                currentPage() {
+                    return this.texts[this.language].links.find(
+                        page => page.route === this.currentRoute
+                    );
+                }
+            },
+
+            mounted() {
+                window.addEventListener("hashchange", this.updateRoute);
+
+                if (!window.location.hash) {
+                    window.location.hash = "/";
+                }
+            },
+
+            beforeUnmount() {
+                window.removeEventListener("hashchange", this.updateRoute);
+            },
+
             methods: {
                 toggleLanguage() {
                     this.language = this.language === "de" ? "en" : "de";
+                },
+
+                updateRoute() {
+                    this.currentRoute = window.location.hash.replace("#", "") || "/";
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
                 }
             }
         }).mount("#app");
