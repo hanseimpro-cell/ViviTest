@@ -428,7 +428,7 @@ img.emoji {
   background: none !important;
   padding: 0 !important;
 /* Footer */
-
+}
 .main-footer {
     width:calc(100% + 60px);
     margin:70px -30px 0;
