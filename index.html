@@ -13,7 +13,7 @@
     <div id="app">
         <header class="topbar">
             <a class="brand" href="#/">
-                Törn e.V.
+             <img src="png/toern_logo.svg" alt="Törn" width="150" height="150">
             </a>
         </header>
 
@@ -86,7 +86,7 @@
                 <div
                     v-if="currentPage"
                     class="page-hero"
-                    :style="{ backgroundImage: `url('${currentPage.image}')` }"
+                    :style="{ backgroundImage: `url('${currentPage.image}')` } "
                 >
                     <div class="page-hero-content">
                         <div class="page-kicker">
@@ -104,14 +104,19 @@
                 </div>
 
                 <article v-if="currentPage" class="page-content">
-                    <h2>
-                        {{ currentPage.pageTitle }}
+			 <div style="text-align:center; margin-bottom: 5rem">
+		<img
+    v-if="currentPage?.articleImage"
+    class="page-hero1"
+    :src="currentPage.articleImage"
+>
+</div>				
+                    <h2 style="margin-bottom: 2rem">
+                        {{ currentPage.pageTitle1}} <br>
+						{{ currentPage.pageTitle2}}
                     </h2>
 
-                <div
-    class="long-text"
-    v-html="currentPage.pageText"
-></div>
+                <div class="long-text" v-html="currentPage.pageText"></div>
 
                     <div class="page-grid">
                         <div
@@ -246,7 +251,7 @@
                             presented: "Törn e.V. präsentiert",
                             headline: "Willkommen in der Welt des Improvisationstheaters",
                             subtitle: "Veranstaltungen, Weiterbildung, Begegnung und kreative Entwicklung an einem Ort.",
-                            backHome: "← Zur Startseite",
+                            backHome: "Zur Startseite",
                             notFoundTitle: "Seite nicht gefunden",
                             notFoundText: "Diese Ansicht existiert aktuell noch nicht.",
 
@@ -270,7 +275,7 @@
                                     route: "/festival",
                                     image: "png/festivals.jpg",
                                     description: "Internationale Improvisationskunst erleben.",
-                                    pageTitle: "Festival",
+                                    pageTitle1: "Festival",
                                     pageText: "Hier entsteht die zentrale Festival-Seite mit Programm, Künstlerinnen und Künstlern, Spielorten und Tickets.",
                                     highlights: [
                                         {
@@ -290,53 +295,71 @@
                                 {
                                     name: "Törn CUP",
                                     route: "/toern-cup",
-                                    image: "png/turn_cup.png",
+                                    image: "png/herzVoll.jpg",
+                                    articleImage: "png/Leuchtturm.jpg",
                                     description: "Das Wettkampfformat für Improvisationstheater.",
-                                    pageTitle: "Törn CUP",
-                                    pageText: "Die Seite für das Wettbewerbsformat, Teams, Regeln, Termine und Ergebnisse.",
-                                    highlights: [
-                                        {
-                                            title: "Teams",
-                                            text: "Alle teilnehmenden Gruppen und Ensembles."
-                                        },
-                                        {
-                                            title: "Regeln",
-                                            text: "Der Ablauf des Cups verständlich erklärt."
-                                        },
-                                        {
-                                            title: "Termine",
-                                            text: "Alle Runden, Shows und Finaltermine."
-                                        }
-                                    ]
+                                    pageTitle1: "TÖRN Cup- ",
+									pageTitle2: "der Hamburger Maestro™",
+                                    pageText:`<div class="elementor-element elementor-element-cd7283c animated-fast elementor-widget elementor-widget-text-editor animated fadeIn" data-id="cd7283c" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="text-editor.default"><div class="elementor-widget-container">
+									<p>Ein Wettstreit um das Herz des Publikums – beim TÖRN Cup treten Impro-Darstellende mit den unterschiedlichsten Erfahrungsleveln gegeneinander an, um die bestmögliche Punktebewertung vom Publikum zu erhalten.</p><p><strong>Das Besondere:</strong> <br>Direkt vor der Show findet von <strong>17-19 Uhr</strong> ein <em>kostenfreier</em> Impro-Workshop statt, zu dem man sich im Vorfeld anmelden kann.</p><p>Dabei spielt es keine Rolle, wie erfahren man ist: Jede*r ist herzlich willkommen! Da die Teilnehmendenzahl begrenzt ist, bitten wir Euch, sich vorher unter folgender E-Mailadresse &nbsp;anzumelden:</p><p><span style="color: #ff9900"><em><strong>maestro@improfestival-hamburg.de</strong></em></span></p><p>WICHTIG: Die Anmeldung für den Workshop ist keine Garantie, am Maestro teilzunehmen bzw. teilnehmen zu dürfen!</p><p>Einige der Workshop-Teilnehmenden haben die Chance, direkt im Anschluss<br>das Gelernte auf der Bühne zu erproben und beim TÖRN Cup aufzutreten. Dies ist von der Anzahl der noch vorhandenen Spielplätze und der Entscheidung der Regie des Abends abhängig.&nbsp;</p><p>Der <strong>TÖRN Cup – der Hamburger Maestro™</strong> findet monatlich <i>jedem ersten&nbsp;<strong>Freitag</strong> im Monat </i>statt.</p><p>Aufgrund von Umbauarbeiten in der Motte sind weitere TÖRN Cups ab Anfang 2026 geplant.</p>								</div>
+				</div>
+									`,
                                 },
                                 {
                                     name: "Törn Around",
                                     route: "/toern-around",
                                     image: "png/turn_around.png",
                                     description: "Austausch, Vernetzung und Inspiration.",
-                                    pageTitle: "Törn Around",
-                                    pageText: "Ein Ort für Begegnung, Austausch und Vernetzung rund um Improvisationstheater.",
-                                    highlights: [
-                                        {
-                                            title: "Community",
-                                            text: "Menschen aus der Impro-Szene miteinander verbinden."
-                                        },
-                                        {
-                                            title: "Austausch",
-                                            text: "Gespräche, Impulse und offene Formate."
-                                        },
-                                        {
-                                            title: "Inspiration",
-                                            text: "Neue Perspektiven für Bühne, Training und Zusammenarbeit."
-                                        }
-                                    ]
+                                    pageTitle1: "Törn Around",
+                                    pageText: `
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-7e3721c2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7e3721c2" data-element_type="section" data-e-type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-734a586" data-id="734a586" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5733d958 elementor-widget elementor-widget-text-editor" data-id="5733d958" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p style="font-weight: 400;">Wir – der TÖRN e.V. – haben es uns zur Aufgabe gemacht, Improvisationstheater niedrigschwellig zugänglich zu machen – insbesondere für junge Menschen. Mit unserem Projekt „TÖRN AROUND“ bieten wir seit zwei Jahren an Schulen der Stadt Hamburg Workshops im Improvisationstheater an. Dabei vermitteln erfahrene Trainer*innen die Grundprinzipien und Methoden des Improvisationstheaters. In den Workshops werden auf spielerische Weise sprachliche Kompetenz, körperliche Ausdrucksfähigkeit, selbstbewusstes Auftreten und soziales Miteinander der Jugendlichen gefördert. Neben den Workshops bietet unser Projekt den Jugendlichen außerdem eine Möglichkeit, an öffentlichen Aufführungen mitzuwirken.</p>
+<p style="font-weight: 400;"><strong>&nbsp;</strong></p>
+<p style="font-weight: 400;"><strong>Für wen ist das Projekt? </strong></p>
+<p style="font-weight: 400;">Klassen, Kurse, AGs an Schulen für Jugendliche im Alter von 12-17 Jahren</p>
+<p style="font-weight: 400;"><strong>Wie ist der Rahmen des Angebots? </strong></p>
+<p style="font-weight: 400;">Der Umfang der Kurse beträgt 4-6 Zeitstunden im Monat und sollte über einige Monate gehen, um einegewisse Qualität der Inhalte und Eﬀekte erreichen zu können. Die genaue Dauer und Aufteilung können dabei individuell geklärt werden. Beispiel: Eine AG Improtheater (unter der Aufsicht einerLehrkraft), die alle zwei Wochen für 120 Minuten von uns trainiert wird.</p>
+<p style="font-weight: 400;"><strong>Was sind die Inhalte?</strong></p>
+<p style="font-weight: 400;">Die Jugendlichen lernen die Grundlagen des Improvisationstheaters (Achtsamkeit, sicheres Auftreten und Körperwirkung, Situationen und Ideen annehmen, eigenen Impulsen folgen, Kommunikationsfähigkeit und Frustrationstoleranz) kennen und wenden sie in frei gespielten Szenenan. Dabei lernen sie kreative Lösungsansätze für mögliche Probleme und Konﬂikte zu ﬁnden und ihre Kommunikations-kompetenzen zu erproben und zu und gleichzeitig. Sie springen mutig in neue Situationen und lernen sich auf ihr Gegenüber so einzulassen, dass sie diese*n wenn nötig unterstützen und „gut“ aussehen lassen.</p>
+<p style="font-weight: 400;">Während des Kurses erhalten die Schüler*innen die Möglichkeit, beim monatlichen TÖRN CUP im Sozial- und Kulturzentrum Motte e.V. in Altona auftreten zu können. Unter der Leitung von geschulten und professionellen Regisseur*innen werden die erworbenen Fähigkeiten in einem gesicherten Umfeld vor Publikum präsentiert. Mit professionellen Schauspieler*innen gemeinsam auf der Bühne, schenken die Jugendlichen der Show eine wundervolle Varianz.</p>
+<p><strong>Was sind mögliche positive Effekte?</strong></p>
+<div class="ullist" >
+<ul>
+<li>Entwicklung von Spontanität und Kreativität</li>
+<li>Aufbrechen und kritische Reflexion von Klischees und Stereotypen</li>
+<li>Weiterentwicklung der Kommunikationsfähigkeit (Zuhören, Sprechen, Raum geben und nehmen, Gruppenverantwortung ausbilden).</li>
+<li>Erhöhte Präsenz und Körperwahrnehmung</li>
+<li>Verbesserte Fehlerkultur und Frustrationstoleranz</li>
+<li>Erfahren von Selbstwirksamkeit</li>
+<li>Erlernen von Storytelling, Humor, Rhetorik und Leichtigkeit</li>
+<li>Bühnenerfahrung vor Publikum</li>
+</ul></div>
+<div>&nbsp;</div>
+<p style="font-weight: 400;"><strong>Wie viel kostet es? </strong>Nichts! Wir wollen unser Angebot für alle zugänglich machen, unabhängig von Herkunft und ﬁnanzieller Situation. Die Finanzierung des Projektes erfolgt durch Hamburger Stiftungen.</p><p style="font-weight: 400;"><br></p>
+<p style="font-weight: 400;">2022/2023 gefördert durch: Elisabeth-Kleber-Stiftung, Carl-Töpfer-Stiftung, Carl-Töpfer-Stiftung, GLS Treuhand e.V., Meyenburg Stiftung</p>
+<p style="font-weight: 400;">2023/24 gefördert durch: die Meyenburg Stiftung</p><p style="font-weight: 400;"><br></p>
+<p style="font-weight: 400;"><strong>Haben Sie Lust auf einen TÖRN AROUND an Ihrer Schule?</strong></p>
+<p style="font-weight: 400;">Dann melden Sie sich unter <a href="mailto:toernaround@improfestival-hamburg.de">toernaround@improfestival-hamburg.de</a></p>
+<p style="font-weight: 400;">Wir freuen uns auf Sie!</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>`,
+                                
+                                  
                                 },
                                 {
                                     name: "Akademie",
                                     route: "/akademie",
                                     image: "png/Akademie.jpg",
                                     description: "Workshops und Weiterbildung.",
-                                    pageTitle: "Akademie",
+                                    pageTitle1: "Akademie",
                                     pageText: "Die Akademie bündelt Workshops, Trainings und Weiterbildungsangebote.",
                                     highlights: [
                                         {
@@ -358,11 +381,11 @@
                                     route: "/impro-spirit-retreat",
                                     image: "png/isr.png",
                                     description: "Entschleunigung und kreative Entwicklung.",
-                                    pageTitle: "Entfalte deine Kreativität beim Impro-Spirit-Retreat!",
+                                    pageTitle1: "Entfalte deine Kreativität beim Impro-Spirit-Retreat!",
                                     pageText: `
     
-									<p><strong>Entfalte deine Kreativität beim Impro-Spirit-Retreat!</strong></p><p style="font-weight: 400">Bist du bereit, für ein Abenteuer der besonderen Art?</p><p style="font-weight: 400">Vom 14. – 24. September 2026</p><p style="font-weight: 400">tauchen wir in ein einzigartiges 10-tägiges Improvisationstheater-Retreat, das nicht nur deine spielerischen Fähigkeiten fördert, sondern dich auch auf eine transformative Reise zu dir und deiner Kreativität führt.</p><p style="font-weight: 400"><strong>Improtheater auf eine neue Weise erleben</strong></p><p style="font-weight: 400">In unserem Impro-Spirit-Retreat lernst du die Kunst des Improvisationstheaters noch mal auf tiefgreifendere und spielerische Weise kennen.</p><p style="font-weight: 400">Unsere erfahrenen Trainer*innen (weitere Infos weiter unten) begleiten dich auf einem Abenteuer, das dir nicht nur kreative Freiheit schenkt, sondern dir auch hilft, deine Spontaneität in einem ganz besonderen Umfeld zu vertiefen. Ohne Alltagssorgen oder Festival Stress zählt endlich wirklich nur der Moment. Du und das Jetzt.</p><p style="font-weight: 400"><strong>Naturverbundenheit und spirituelle Erlebnisse</strong></p><p style="font-weight: 400">Aber das ist noch nicht alles: Um deine Kreativität zu entfalten, verbinden wir das Improtheater mit der heilsamen Kraft der Natur und dem Feuer der südamerikanischen Kultur!</p><p style="font-weight: 400">Inmitten einer atemberaubenden Landschaft bieten wir dir vielfältige, naturverbundene Aktivitäten – sei es eine meditative und alle Sinne vertiefende Wanderung oder eine intensive „maßgeschneiderte Sound Healing“ Session, Atem – und Körperübungen wie zum Beispiel morgendliche Drum – Yoga Sessions unter freiem Himmel oder Zeit für Reflexion am Lagerfeuer.&nbsp;&nbsp;</p><p style="font-weight: 400"><strong>Kulturelles Kennenlernen und Gemeinschaft</strong></p><p style="font-weight: 400">Außerdem tauchen wir in lokale Traditionen und kreative Ausdrucksformen ein. So zum Beispiel mit einem traditionellen Handwerkskurs oder einem Salsa-Workshop. Da die Gastgeberinnen mit einem kleinen Theater, in Barichara kooperieren, gibt es die Möglichkeit einer abschließenden Werkschau und so der Gemeinschaft vor Ort etwas „zurückzugeben“.</p><p style="font-weight: 400"><strong>Für wen ist dieses Retreat?</strong></p><p style="font-weight: 400">Für alle Schauspieler*innen und Improspieler*innen mit mindestens Basic Spiel- oder&nbsp; Bühnenerfahrungen.&nbsp;</p><p><strong>Impro Kurse/ Trainer*innen&nbsp;</strong></p><p><span style="text-decoration: underline">Tony Beeman</span></p><p>Tony Beeman ist ein erfahrener Improvisationskünstler, Regisseur und Pädagoge aus Seattle, Washington, wo er als künstlerischer Leiter und Bildungsdirektor von Unexpected Productions tätig ist – der ältesten und größten Improvisationsgruppe der Region. In seiner mehr als 25-jährigen Karriere hat Tony in ganz Europa, dem Nahen Osten und Nordamerika gespielt, unterrichtet und Regie geführt. Seine Arbeit zeichnet sich durch sein Bekenntnis zu Theatralik und Aufrichtigkeit aus, wobei er sich auf Improvisation konzentriert, die sich durch Ensemble-Storytelling, poetische Sprache und fundierte Authentizität wie traditionelles Theater anfühlt.</p><p>Seine Show „Four Hearts“, eine improvisierte Hommage an die Werke von Edward Albee, wurde von Theatergruppen in Kanada, Kolumbien und Japan adaptiert.</p><p>In seiner Rolle als Direktor leitet Tony eine der größten Improvisationsschulen der Welt, wo er sich für die Idee einsetzt, dass Improvisation nicht nur eine Performance-Technik ist, sondern ein radikales Werkzeug für zwischenmenschliche Beziehungen. Er glaubt, dass das überzeugendste Theater entsteht, wenn Darsteller ihr authentisches Selbst auf die Bühne bringen und das dieser Kunstform innewohnende „freudige Scheitern” annehmen.</p><p>&nbsp;</p><p><span style="text-decoration: underline">Felipe Ortiz</span></p><p>Felipe ist ein Performer, Regisseur und Lehrer, der sich für den Austausch, die Interaktion, das Spiel und die gemeinsame Erfahrung mit verschiedenen Künstlern weltweit interessiert. Seine Leidenschaft gilt dem Körper in Bewegung und seinen Möglichkeiten, die er durch Akrobatik, Improvisation, Clownerie, physisches Theater und Objektmanipulation erforscht, um neue Ausdrucksformen in der darstellenden Kunst zu schaffen. Seit 2003 tourt er mit verschiedenen Projekten in Festivals, Unternehmen und Künstlerkollaborationen durch die Welt. Er ist in der internationalen Szene als Improvisations-, Körpertheater- und Clownslehrer bekannt.</p><p>Wenn du mehr wissen willst:</p><p><a href="https://www.1felipeortiz.com/about/">About – Felipe Ortiz</a></p><p><span style="text-decoration: underline">Viviane Vanessa</span></p><p>Viviane ist seit über 22 Jahren Improvisationstheater-Performerin. Sie hat Schauspiel studiert, am Westfälischen Landestheater gespielt und ist seit 2011 Mitglied des Impro- und Businesstheater-Ensembles „Steifen Brise“. Sie ist künstlerische Leitung des internationalen Theaterfestival „Törn “, Dozentin an der Hamburger Schule für Comedy und regelmäßig auf nationalen und internationalen Theaterfestivals als Spielerin und Trainerin unterwegs. Neben dem Vorsitz des Törn e.V. schlüpft sie auch in die Regie-Rolle und setzt sich für mehr Generationenvielfalt auf Hamburger Kleinbühnen ein.</p><p><span style="text-decoration: underline">Impro Themen/ Inhalte</span></p><p>Wir arbeiten an:</p><ul><li>“magic realism”</li><li>„find the real connection“</li><li>Physical Impro</li><li>“the four senses”</li></ul><p><span style="text-decoration: underline"><strong>Hier genauere Infos</strong></span></p><p>Die Teilnahmegebühr für das Impro.Spirit.Retreat beträgt 1.550,00 Euro.</p><p>Darin enthalten sind:<br>– Übernachtung in Villa de Leyva<br>– Bustransport von Bogotá nach Barichara und zurück<br>– Verpflegung in unserem Haus „Casa Moais“ in Barichara für die gesamten Tage + Wasser, Kaffee und Tee. Das bedeutet Frühstück, Mittagessen, Abendessen und einige gesunde Snacks, die ihr während der Workshops benötigen könntet (bitte beachtet: an einem Abend werden wir in Barichara ausgehen. Nur dieses Abendessen und das Essen in „Villa de Leyva“ sind nicht inbegriffen)<br>– einfache Unterkunft bei uns in Barichara (es gibt drei verschiedene Optionen, siehe unten, aus denen ihr wählen könnt)<br>– alle Impro-Kurse mit einem MINIMUM von 27 Stunden (es werden definitiv mehr sein) mit&nbsp; verschiedenen, professionellen Lehrer*innen<br>– ein „Vibrationsritual“ (s.g. Klangheilung)<br>– eine intensive „In-Naha“- Ritual<br>– ein Salsa-Kurs<br>– alle zusätzlichen Aktivitäten, die mit Kultur und Natur zu tun haben (z. B. eine geführte meditative Wanderung, eine sensorische Erfahrung in einem Landhaus usw.)</p><p>-eine Drum Yoga Session<br>– eine wunderbare Zeit in einer wunderschönen Landschaft mit magischen Momenten</p><p>(Bitte beachte: Da wir uns vorstellen können, dass internationale Teilnehmer*innen vor oder nach dem Retreat noch rumreisen möchten, ist die Nacht vom 13. auf den 14. Oktober und alles nach dem 24. Oktober nicht inbegriffen).</p><p><strong><span style="text-decoration: underline">Unterkunft</span></strong></p><p>Wir haben <span style="text-decoration: underline">drei</span> unterschiedliche Möglichkeiten.</p><p>Zum einen könnt ihr im Haupthaus übernachten. Dort haben wir ein Drei Bett – Zimmer und ein Vier Bett – Zimmer. (keine Hochbetten) Die Räume befinden sich gleich neben dem Haus in dem wir unsere Mahlzeiten zu uns nehmen und die Impro Klassen und andere Kurse statt finden. Ich habe sicher schon erwähnt, das die Energie an diesem Ort magisch ist! <img draggable="false" role="img" class="emoji" alt="😉" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f609.svg"><br>Für diese Wahl, müssen wir um einen kleinen Kostenaufschlag von 9€ pro Nacht bitten, also insgesamt 81€.</p><p>Für die Menschen, die gerne ein Einzelzimmer haben möchten, haben wir diese Möglichkeit in einem Hostel, ca. 800 Meter entfernt. Allein der Weg dort hin, durchs Grüne, mit Blick auf die Berge ist wundervoll.<br>Es stehen genau vier Einzelzimmer zur Verfügung. Diese sind je für 45€ pro Nacht, also insgesamt 405€ extra zu beziehen.</p><p>Last but not least, haben wir die Möglichkeit in einem Mehrbettzimmer mit Hochbetten im Hostel zu übernachten. Dies ist die kostengünstigste Option. Ohne Aufpreis. Inklusive athemberaubenden Weg zur Unterkunft.</p><p>Wenn du dir ein Bild machen möchtest, vom Ort und weitere Eindrücke brauchst:</p><p><a href="https://www.instagram.com/impro.spirit.retreat/">Impro Spirit Retreats (@impro.spirit.retreat) • Instagram-Fotos und -Videos</a></p><p><span style="text-decoration: underline"><strong>Specials</strong></span></p><p><strong>Vibrational-Ritual</strong></p><p>Mit diesem Ritual eröffnen wir offiziell unser Retreat. In der ersten Stunde werden wir uns darauf konzentrieren, die Absicht, die jede Person mitbringt, in Bewegung zu bringen und zu konkretisieren. Indem wir somatische Praktiken anwenden, die uns helfen, uns mit unseren höchsten „Energiefrequenzen“ zu verbinden – unserem authentischen Selbst. Danach folgt eine Stunde Klangschwingung, die es uns ermöglicht, diese Reise mit der nötigen Offenheit anzutreten, um alle Teile unseres Selbst – Widerstand, Angst, Urteilsvermögen und schöpferische Kraft – anzunehmen und sich ganz auf unsere Absicht auszurichten.</p><p>Dieses Ritual wird von Patricia Macaya geleitet, einer Expertin für Klangheilung und somatische Praktiken.</p><p><strong>IN-NAHA-Ritual</strong></p><p>In-Naha ist eine erholsame somatische Praxis, die mit der verfügbaren Energie des Körpers und der Umgebung arbeitet. In dieser Sitzung werden Sie u.a. erkunden:</p><p>– Stagnierende Energie, die in Ihrem Zellgedächtnis gespeichert ist, loslassen<br>– Wiederherstellung der Verbindung mit Gefühlen von Freude, Ruhe, Vertrauen und Dankbarkeit<br>– Ihr Nervensystem durch somatische Ressourcen zu regulieren<br>– Ihren intuitiven, rezeptiven Kanal jenseits des mentalen Raums öffnen<br>– Verarbeitung von körperlichen Impulsen, die durch traumatische Erfahrungen blockiert wurden<br>Diese Erkundungen werden Ihre Fähigkeiten als Improspieler*in, Schauspieler*in und Performer aller Art unterstützen und verbessern.</p><p>Außerdem wird es</p><p>ein <strong>Salsa Kurs </strong>und <span style="text-decoration: underline">vieles</span> mehr geben..</p><p style="font-weight: 400"><strong>Buch jetzt deinen Platz im ersten Impro-Spirit-Retreat!&nbsp;</strong></p><p style="font-weight: 400"><strong>&nbsp;</strong></p><p style="font-weight: 400">Bei Fragen schreibe uns unter:</p><p style="font-weight: 400"><strong>impro.spirit.retreat@gmail.com</strong></p><p>(Sollte der Registrierungs – Link hier nicht funktionieren, nutze bitte den, der englischen Seite! &lt;3)</p><div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3ec495a" data-id="3ec495a" data-element_type="column" data-e-type="column">
+									<p><strong>Entfalte deine Kreativität beim Impro-Spirit-Retreat!</strong></p><p style="font-weight: 400">Bist du bereit, für ein Abenteuer der besonderen Art?</p><p style="font-weight: 400">Vom 14. – 24. September 2026</p><p style="font-weight: 400">tauchen wir in ein einzigartiges 10-tägiges Improvisationstheater-Retreat, das nicht nur deine spielerischen Fähigkeiten fördert, sondern dich auch auf eine transformative Reise zu dir und deiner Kreativität führt.</p><p style="font-weight: 400"><strong>Improtheater auf eine neue Weise erleben</strong></p><p style="font-weight: 400">In unserem Impro-Spirit-Retreat lernst du die Kunst des Improvisationstheaters noch mal auf tiefgreifendere und spielerische Weise kennen.</p><p style="font-weight: 400">Unsere erfahrenen Trainer*innen (weitere Infos weiter unten) begleiten dich auf einem Abenteuer, das dir nicht nur kreative Freiheit schenkt, sondern dir auch hilft, deine Spontaneität in einem ganz besonderen Umfeld zu vertiefen. Ohne Alltagssorgen oder Festival Stress zählt endlich wirklich nur der Moment. Du und das Jetzt.</p><p style="font-weight: 400"><strong>Naturverbundenheit und spirituelle Erlebnisse</strong></p><p style="font-weight: 400">Aber das ist noch nicht alles: Um deine Kreativität zu entfalten, verbinden wir das Improtheater mit der heilsamen Kraft der Natur und dem Feuer der südamerikanischen Kultur!</p><p style="font-weight: 400">Inmitten einer atemberaubenden Landschaft bieten wir dir vielfältige, naturverbundene Aktivitäten – sei es eine meditative und alle Sinne vertiefende Wanderung oder eine intensive „maßgeschneiderte Sound Healing“ Session, Atem – und Körperübungen wie zum Beispiel morgendliche Drum – Yoga Sessions unter freiem Himmel oder Zeit für Reflexion am Lagerfeuer.&nbsp;&nbsp;</p><p style="font-weight: 400"><strong>Kulturelles Kennenlernen und Gemeinschaft</strong></p><p style="font-weight: 400">Außerdem tauchen wir in lokale Traditionen und kreative Ausdrucksformen ein. So zum Beispiel mit einem traditionellen Handwerkskurs oder einem Salsa-Workshop. Da die Gastgeberinnen mit einem kleinen Theater, in Barichara kooperieren, gibt es die Möglichkeit einer abschließenden Werkschau und so der Gemeinschaft vor Ort etwas „zurückzugeben“.</p><p style="font-weight: 400"><strong>Für wen ist dieses Retreat?</strong></p><p style="font-weight: 400">Für alle Schauspieler*innen und Improspieler*innen mit mindestens Basic Spiel- oder&nbsp; Bühnenerfahrungen.&nbsp;</p><p><strong>Impro Kurse/ Trainer*innen&nbsp;</strong></p><p><span style="text-decoration: underline">Tony Beeman</span></p><p>Tony Beeman ist ein erfahrener Improvisationskünstler, Regisseur und Pädagoge aus Seattle, Washington, wo er als künstlerischer Leiter und Bildungsdirektor von Unexpected Productions tätig ist – der ältesten und größten Improvisationsgruppe der Region. In seiner mehr als 25-jährigen Karriere hat Tony in ganz Europa, dem Nahen Osten und Nordamerika gespielt, unterrichtet und Regie geführt. Seine Arbeit zeichnet sich durch sein Bekenntnis zu Theatralik und Aufrichtigkeit aus, wobei er sich auf Improvisation konzentriert, die sich durch Ensemble-Storytelling, poetische Sprache und fundierte Authentizität wie traditionelles Theater anfühlt.</p><p>Seine Show „Four Hearts“, eine improvisierte Hommage an die Werke von Edward Albee, wurde von Theatergruppen in Kanada, Kolumbien und Japan adaptiert.</p><p>In seiner Rolle als Direktor leitet Tony eine der größten Improvisationsschulen der Welt, wo er sich für die Idee einsetzt, dass Improvisation nicht nur eine Performance-Technik ist, sondern ein radikales Werkzeug für zwischenmenschliche Beziehungen. Er glaubt, dass das überzeugendste Theater entsteht, wenn Darsteller ihr authentisches Selbst auf die Bühne bringen und das dieser Kunstform innewohnende „freudige Scheitern” annehmen.</p><p>&nbsp;</p><p><span style="text-decoration: underline">Felipe Ortiz</span></p><p>Felipe ist ein Performer, Regisseur und Lehrer, der sich für den Austausch, die Interaktion, das Spiel und die gemeinsame Erfahrung mit verschiedenen Künstlern weltweit interessiert. Seine Leidenschaft gilt dem Körper in Bewegung und seinen Möglichkeiten, die er durch Akrobatik, Improvisation, Clownerie, physisches Theater und Objektmanipulation erforscht, um neue Ausdrucksformen in der darstellenden Kunst zu schaffen. Seit 2003 tourt er mit verschiedenen Projekten in Festivals, Unternehmen und Künstlerkollaborationen durch die Welt. Er ist in der internationalen Szene als Improvisations-, Körpertheater- und Clownslehrer bekannt.</p><p>Wenn du mehr wissen willst:</p><p><a href="https://www.1felipeortiz.com/about/">About – Felipe Ortiz</a></p><p><span style="text-decoration: underline">Viviane Vanessa</span></p><p>Viviane ist seit über 22 Jahren Improvisationstheater-Performerin. Sie hat Schauspiel studiert, am Westfälischen Landestheater gespielt und ist seit 2011 Mitglied des Impro- und Businesstheater-Ensembles „Steifen Brise“. Sie ist künstlerische Leitung des internationalen Theaterfestival „Törn “, Dozentin an der Hamburger Schule für Comedy und regelmäßig auf nationalen und internationalen Theaterfestivals als Spielerin und Trainerin unterwegs. Neben dem Vorsitz des Törn e.V. schlüpft sie auch in die Regie-Rolle und setzt sich für mehr Generationenvielfalt auf Hamburger Kleinbühnen ein.</p><p><span style="text-decoration: underline">Impro Themen/ Inhalte</span></p><p>Wir arbeiten an:</p><div class="ullist"><ul><li>“magic realism”</li><li>„find the real connection“</li><li>Physical Impro</li><li>“the four senses”</li></ul></div><p><span style="text-decoration: underline"><strong>Hier genauere Infos</strong></span></p><p>Die Teilnahmegebühr für das Impro.Spirit.Retreat beträgt 1.550,00 Euro.</p><p>Darin enthalten sind:<br>– Übernachtung in Villa de Leyva<br>– Bustransport von Bogotá nach Barichara und zurück<br>– Verpflegung in unserem Haus „Casa Moais“ in Barichara für die gesamten Tage + Wasser, Kaffee und Tee. Das bedeutet Frühstück, Mittagessen, Abendessen und einige gesunde Snacks, die ihr während der Workshops benötigen könntet (bitte beachtet: an einem Abend werden wir in Barichara ausgehen. Nur dieses Abendessen und das Essen in „Villa de Leyva“ sind nicht inbegriffen)<br>– einfache Unterkunft bei uns in Barichara (es gibt drei verschiedene Optionen, siehe unten, aus denen ihr wählen könnt)<br>– alle Impro-Kurse mit einem MINIMUM von 27 Stunden (es werden definitiv mehr sein) mit&nbsp; verschiedenen, professionellen Lehrer*innen<br>– ein „Vibrationsritual“ (s.g. Klangheilung)<br>– eine intensive „In-Naha“- Ritual<br>– ein Salsa-Kurs<br>– alle zusätzlichen Aktivitäten, die mit Kultur und Natur zu tun haben (z. B. eine geführte meditative Wanderung, eine sensorische Erfahrung in einem Landhaus usw.)</p><p>-eine Drum Yoga Session<br>– eine wunderbare Zeit in einer wunderschönen Landschaft mit magischen Momenten</p><p>(Bitte beachte: Da wir uns vorstellen können, dass internationale Teilnehmer*innen vor oder nach dem Retreat noch rumreisen möchten, ist die Nacht vom 13. auf den 14. Oktober und alles nach dem 24. Oktober nicht inbegriffen).</p><p><strong><span style="text-decoration: underline">Unterkunft</span></strong></p><p>Wir haben <span style="text-decoration: underline">drei</span> unterschiedliche Möglichkeiten.</p><p>Zum einen könnt ihr im Haupthaus übernachten. Dort haben wir ein Drei Bett – Zimmer und ein Vier Bett – Zimmer. (keine Hochbetten) Die Räume befinden sich gleich neben dem Haus in dem wir unsere Mahlzeiten zu uns nehmen und die Impro Klassen und andere Kurse statt finden. Ich habe sicher schon erwähnt, das die Energie an diesem Ort magisch ist! <img draggable="false" role="img" class="emoji" alt="😉" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f609.svg"><br>Für diese Wahl, müssen wir um einen kleinen Kostenaufschlag von 9€ pro Nacht bitten, also insgesamt 81€.</p><p>Für die Menschen, die gerne ein Einzelzimmer haben möchten, haben wir diese Möglichkeit in einem Hostel, ca. 800 Meter entfernt. Allein der Weg dort hin, durchs Grüne, mit Blick auf die Berge ist wundervoll.<br>Es stehen genau vier Einzelzimmer zur Verfügung. Diese sind je für 45€ pro Nacht, also insgesamt 405€ extra zu beziehen.</p><p>Last but not least, haben wir die Möglichkeit in einem Mehrbettzimmer mit Hochbetten im Hostel zu übernachten. Dies ist die kostengünstigste Option. Ohne Aufpreis. Inklusive athemberaubenden Weg zur Unterkunft.</p><p>Wenn du dir ein Bild machen möchtest, vom Ort und weitere Eindrücke brauchst:</p><p><a href="https://www.instagram.com/impro.spirit.retreat/">Impro Spirit Retreats (@impro.spirit.retreat) • Instagram-Fotos und -Videos</a></p><p><span style="text-decoration: underline"><strong>Specials</strong></span></p><p><strong>Vibrational-Ritual</strong></p><p>Mit diesem Ritual eröffnen wir offiziell unser Retreat. In der ersten Stunde werden wir uns darauf konzentrieren, die Absicht, die jede Person mitbringt, in Bewegung zu bringen und zu konkretisieren. Indem wir somatische Praktiken anwenden, die uns helfen, uns mit unseren höchsten „Energiefrequenzen“ zu verbinden – unserem authentischen Selbst. Danach folgt eine Stunde Klangschwingung, die es uns ermöglicht, diese Reise mit der nötigen Offenheit anzutreten, um alle Teile unseres Selbst – Widerstand, Angst, Urteilsvermögen und schöpferische Kraft – anzunehmen und sich ganz auf unsere Absicht auszurichten.</p><p>Dieses Ritual wird von Patricia Macaya geleitet, einer Expertin für Klangheilung und somatische Praktiken.</p><p><strong>IN-NAHA-Ritual</strong></p><p>In-Naha ist eine erholsame somatische Praxis, die mit der verfügbaren Energie des Körpers und der Umgebung arbeitet. In dieser Sitzung werden Sie u.a. erkunden:</p><p>– Stagnierende Energie, die in Ihrem Zellgedächtnis gespeichert ist, loslassen<br>– Wiederherstellung der Verbindung mit Gefühlen von Freude, Ruhe, Vertrauen und Dankbarkeit<br>– Ihr Nervensystem durch somatische Ressourcen zu regulieren<br>– Ihren intuitiven, rezeptiven Kanal jenseits des mentalen Raums öffnen<br>– Verarbeitung von körperlichen Impulsen, die durch traumatische Erfahrungen blockiert wurden<br>Diese Erkundungen werden Ihre Fähigkeiten als Improspieler*in, Schauspieler*in und Performer aller Art unterstützen und verbessern.</p><p>Außerdem wird es</p><p>ein <strong>Salsa Kurs </strong>und <span style="text-decoration: underline">vieles</span> mehr geben..</p><p style="font-weight: 400"><strong>Buch jetzt deinen Platz im ersten Impro-Spirit-Retreat!&nbsp;</strong></p><p style="font-weight: 400"><strong>&nbsp;</strong></p><p style="font-weight: 400">Bei Fragen schreibe uns unter:</p><p style="font-weight: 400"><strong>impro.spirit.retreat@gmail.com</strong></p><p>(Sollte der Registrierungs – Link hier nicht funktionieren, nutze bitte den, der englischen Seite! &lt;3)</p><div class="elementor-container elementor-column-gap-default">
+					<div class="register-column elementor-col-100 elementor-top-column elementor-element elementor-element-3ec495a" data-id="3ec495a" data-element_type="column" data-e-type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 						<div class="elementor-element elementor-element-c75272f elementor-align-center elementor-widget elementor-widget-button" data-id="c75272f" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
@@ -431,7 +454,7 @@
                                     route: "/festival",
                                     image: "png/festivals.jpg",
                                     description: "Experience international improvisational theatre.",
-                                    pageTitle: "Festival",
+                                    pageTitle1: "Festival",
                                     pageText: "This page will contain programme details, artists, venues and tickets.",
                                     highlights: [
                                         {
@@ -453,7 +476,7 @@
                                     route: "/toern-cup",
                                     image: "png/turn_cup.png",
                                     description: "The competition format for improvisational theatre.",
-                                    pageTitle: "Törn CUP",
+                                    pageTitle1: "Törn CUP",
                                     pageText: "The page for the competition format, teams, rules, dates and results.",
                                     highlights: [
                                         {
@@ -475,7 +498,7 @@
                                     route: "/toern-around",
                                     image: "png/turn_around.png",
                                     description: "Exchange, networking and inspiration.",
-                                    pageTitle: "Törn Around",
+                                    pageTitle1: "Törn Around",
                                     pageText: "A space for connection, exchange and networking around improvisational theatre.",
                                     highlights: [
                                         {
@@ -497,7 +520,7 @@
                                     route: "/akademie",
                                     image: "png/Akademie.jpg",
                                     description: "Workshops and professional development.",
-                                    pageTitle: "Academy",
+                                    pageTitle1: "Academy",
                                     pageText: "The academy brings together workshops, trainings and development formats.",
                                     highlights: [
                                         {
@@ -519,7 +542,7 @@
                                     route: "/impro-spirit-retreat",
                                     image: "png/isr.png",
                                     description: "Reflection and creative growth.",
-                                    pageTitle: "Impro Spirit Retreat",
+                                    pageTitle1: "Impro Spirit Retreat",
                                     pageText: `
     
 									<p><strong>Unleash your creativity at the Impro Spirit Retreat!</strong></p><p style="font-weight: 400">Are you ready for a truly special kind of adventure?</p><p style="font-weight: 400">From September 14 – 24, 2026</p><p style="font-weight: 400">we will immerse ourselves in a unique 10-day improvisational theatre retreat that will not only strengthen your playful skills, but also take you on a transformative journey toward yourself and your creativity.</p><p style="font-weight: 400"><strong>Experience improv theatre in a new way</strong></p><p style="font-weight: 400">At our Impro Spirit Retreat, you will discover the art of improvisational theatre once again in a deeper and more playful way.</p><p style="font-weight: 400">Our experienced teachers (more information below) will accompany you on an adventure that not only gives you creative freedom, but also helps you deepen your spontaneity in a very special environment. Without everyday worries or festival stress, only the moment truly matters. You and the now.</p><p style="font-weight: 400"><strong>Connection with nature and spiritual experiences</strong></p><p style="font-weight: 400">But that is not all: To help your creativity unfold, we combine improv theatre with the healing power of nature and the fire of South American culture!</p><p style="font-weight: 400">Surrounded by breathtaking scenery, we offer you a variety of nature-connected activities — whether it is a meditative hike that deepens all your senses, an intensive “custom-made sound healing” session, breath and body exercises such as morning drum yoga sessions under the open sky, or time for reflection around the campfire.&nbsp;&nbsp;</p><p style="font-weight: 400"><strong>Cultural discovery and community</strong></p><p style="font-weight: 400">We will also dive into local traditions and creative forms of expression. For example, through a traditional crafts workshop or a salsa workshop. Since the hosts cooperate with a small theatre in Barichara, there is the possibility of a final showing and thus of “giving something back” to the local community.</p><p style="font-weight: 400"><strong>Who is this retreat for?</strong></p><p style="font-weight: 400">For all actors and improv players with at least basic performance or stage experience.&nbsp;</p><p><strong>Improv courses / teachers&nbsp;</strong></p><p><span style="text-decoration: underline">Tony Beeman</span></p><p>Tony Beeman is an experienced improviser, director, and educator from Seattle, Washington, where he serves as Artistic Director and Education Director of Unexpected Productions — the oldest and largest improvisation company in the region. Over his career of more than 25 years, Tony has performed, taught, and directed across Europe, the Middle East, and North America. His work is defined by his commitment to theatricality and sincerity, focusing on improvisation that feels like traditional theatre through ensemble storytelling, poetic language, and grounded authenticity.</p><p>His show “Four Hearts,” an improvised homage to the works of Edward Albee, has been adapted by theatre companies in Canada, Colombia, and Japan.</p><p>In his role as director, Tony leads one of the largest improvisation schools in the world, where he advocates the idea that improvisation is not only a performance technique, but a radical tool for human connection. He believes that the most compelling theatre emerges when performers bring their authentic selves to the stage and embrace the “joyful failure” inherent in this art form.</p><p>&nbsp;</p><p><span style="text-decoration: underline">Felipe Ortiz</span></p><p>Felipe is a performer, director, and teacher who is interested in exchange, interaction, play, and shared experiences with different artists around the world. His passion is the body in motion and its possibilities, which he explores through acrobatics, improvisation, clowning, physical theatre, and object manipulation in order to create new forms of expression in the performing arts. Since 2003, he has toured the world with various projects at festivals, companies, and artistic collaborations. He is known internationally as a teacher of improvisation, physical theatre, and clowning.</p><p>If you would like to know more:</p><p><a href="https://www.1felipeortiz.com/about/">About – Felipe Ortiz</a></p><p><span style="text-decoration: underline">Viviane Vanessa</span></p><p>Viviane has been an improvisational theatre performer for over 22 years. She studied acting, performed at the Westfälisches Landestheater, and has been a member of the improv and business theatre ensemble “Steife Brise” since 2011. She is the artistic director of the international theatre festival “Törn,” a lecturer at the Hamburg School of Comedy, and regularly appears at national and international theatre festivals as a performer and teacher. In addition to chairing Törn e.V., she also takes on directing roles and advocates for more generational diversity on Hamburg’s small stages.</p><p><span style="text-decoration: underline">Improv topics / content</span></p><p>We will work on:</p><ul><li>“magic realism”</li><li>“find the real connection”</li><li>Physical Impro</li><li>“the four senses”</li></ul><p><span style="text-decoration: underline"><strong>More detailed information</strong></span></p><p>The participation fee for the Impro.Spirit.Retreat is 1,550.00 euros.</p><p>Included are:<br>– Overnight stay in Villa de Leyva<br>– Bus transport from Bogotá to Barichara and back<br>– Meals at our house “Casa Moais” in Barichara for the entire stay + water, coffee, and tea. This means breakfast, lunch, dinner, and some healthy snacks you may need during the workshops (please note: on one evening we will go out in Barichara. Only this dinner and the meals in “Villa de Leyva” are not included)<br>– Simple accommodation with us in Barichara (there are three different options, see below, from which you can choose)<br>– All improv courses with a MINIMUM of 27 hours (there will definitely be more) with various professional teachers<br>– A “vibrational ritual” (so-called sound healing)<br>– An intensive “In-Naha” ritual<br>– A salsa course<br>– All additional activities related to culture and nature (e.g. a guided meditative hike, a sensory experience in a country house, etc.)</p><p>– a drum yoga session<br>– a wonderful time in a beautiful landscape with magical moments</p><p>(Please note: Since we can imagine that international participants may want to travel before or after the retreat, the night from October 13 to 14 and everything after October 24 are not included).</p><p><strong><span style="text-decoration: underline">Accommodation</span></strong></p><p>We have <span style="text-decoration: underline">three</span> different options.</p><p>First, you can stay in the main house. There we have one three-bed room and one four-bed room. (no bunk beds) The rooms are located right next to the house where we have our meals and where the improv classes and other courses take place. I am sure I have already mentioned that the energy in this place is magical! <img draggable="false" role="img" class="emoji" alt="😉" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f609.svg"><br>For this option, we have to ask for a small surcharge of €9 per night, so €81 in total.</p><p>For those who would like a single room, we offer this option in a hostel about 800 meters away. The walk there alone, through the greenery with a view of the mountains, is wonderful.<br>Exactly four single rooms are available. These can be booked for €45 per night each, so €405 extra in total.</p><p>Last but not least, we have the option of staying in a shared room with bunk beds at the hostel. This is the most affordable option. No surcharge. Including a breathtaking walk to the accommodation.</p><p>If you would like to get a picture of the place and need more impressions:</p><p><a href="https://www.instagram.com/impro.spirit.retreat/">Impro Spirit Retreats (@impro.spirit.retreat) • Instagram photos and videos</a></p><p><span style="text-decoration: underline"><strong>Specials</strong></span></p><p><strong>Vibrational Ritual</strong></p><p>With this ritual, we officially open our retreat. In the first hour, we will focus on bringing into motion and concretizing the intention each person brings with them. We will use somatic practices that help us connect with our highest “energy frequencies” — our authentic self. This is followed by an hour of sound vibration, allowing us to begin this journey with the openness needed to embrace all parts of ourselves — resistance, fear, judgment, and creative power — and to fully align with our intention.</p><p>This ritual is led by Patricia Macaya, an expert in sound healing and somatic practices.</p><p><strong>IN-NAHA Ritual</strong></p><p>In-Naha is a restorative somatic practice that works with the available energy of the body and the environment. In this session, you will explore, among other things:</p><p>– Releasing stagnant energy stored in your cellular memory<br>– Restoring connection with feelings of joy, calm, trust, and gratitude<br>– Regulating your nervous system through somatic resources<br>– Opening your intuitive, receptive channel beyond the mental space<br>– Processing physical impulses that have been blocked by traumatic experiences<br>These explorations will support and enhance your skills as an improv player, actor, and performer of any kind.</p><p>There will also be</p><p>a <strong>salsa course </strong>and <span style="text-decoration: underline">much</span> more..</p><p style="font-weight: 400"><strong>Book your place now in the first Impro Spirit Retreat!&nbsp;</strong></p><p style="font-weight: 400"><strong>&nbsp;</strong></p><p style="font-weight: 400">For questions, write to us at:</p><p style="font-weight: 400"><strong>impro.spirit.retreat@gmail.com</strong></p><p>(If the registration link here does not work, please use the one on the English page! &lt;3)</p><div class="elementor-container elementor-column-gap-default">
@@ -547,7 +570,7 @@
                                     route: "/kontakt",
                                     image: "png/festivals.jpg",
                                     description: "Contact Törn e.V.",
-                                    pageTitle: "Contact",
+                                    pageTitle1: "Contact",
                                     pageText: "This page will contain contact persons, email addresses and a form.",
                                     highlights: [
                                         {
@@ -569,7 +592,7 @@
                                     route: "/ueber-uns",
                                     image: "png/turn_around.png",
                                     description: "More about Törn e.V.",
-                                    pageTitle: "About us",
+                                    pageTitle1: "About us",
                                     pageText: "This page will present Törn e.V., the team, the idea and the story.",
                                     highlights: [
                                         {
@@ -591,7 +614,7 @@
                                     route: "/blog",
                                     image: "png/festivals.jpg",
                                     description: "News and stories.",
-                                    pageTitle: "Blog",
+                                    pageTitle1: "Blog",
                                     pageText: "News, retrospectives, interviews and stories from the Törn universe.",
                                     highlights: [
                                         {
@@ -613,7 +636,7 @@
                                     route: "/newsletter",
                                     image: "png/Akademie.jpg",
                                     description: "News by email.",
-                                    pageTitle: "Newsletter",
+                                    pageTitle1: "Newsletter",
                                     pageText: "This page will contain the newsletter signup.",
                                     highlights: [
                                         {
@@ -635,7 +658,7 @@
                                     route: "/datenschutz",
                                     image: "png/turn_around.png",
                                     description: "Privacy information.",
-                                    pageTitle: "Privacy",
+                                    pageTitle1: "Privacy",
                                     pageText: "Privacy information will be added here.",
                                     highlights: [
                                         {
@@ -649,7 +672,7 @@
                                     route: "/impressum",
                                     image: "png/isr.png",
                                     description: "Legal information.",
-                                    pageTitle: "Legal notice",
+                                    pageTitle1: "Legal notice",
                                     pageText: "Legal notice information will be added here.",
                                     highlights: [
                                         {
