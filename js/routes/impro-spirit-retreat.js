@@ -75,10 +75,8 @@
 <li> Ihr Nervensystem durch somatische Ressourcen zu regulieren</li>
 <li> Ihren intuitiven, rezeptiven Kanal jenseits des mentalen Raums öffnen</li>
 <li>Verarbeitung von körperlichen Impulsen, die durch traumatische Erfahrungen blockiert wurden</p></li>
-
 </ul>
 </div>
-
 <p>Diese Erkundungen werden Ihre Fähigkeiten als Improspieler*in, Schauspieler*in und Performer aller Art unterstützen und verbessern.</p>
 <p>Außerdem wird es</p>
 <p>ein <strong>Salsa Kurs </strong>und <span style="text-decoration: underline">vieles</span> mehr geben..</p>
