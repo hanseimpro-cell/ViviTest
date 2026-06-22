@@ -298,7 +298,31 @@ background-size: cover;
     object-position:center;
 
 }
+.team-image {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    border-radius: 18px;
+    margin-bottom: 1.5rem;
+}
 
+.team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.team-card .image-wrapper {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.team-card .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .page-hero:before {
     content:"";
     position:absolute;
@@ -317,10 +341,9 @@ background-size: cover;
 }
 
 .page-kicker {
-    font-size:14px;
+    font-size:15px;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:rgba(255,255,255,.78);
     font-weight:900;
     margin-bottom:10px
 }
@@ -370,7 +393,8 @@ background-size: cover;
     padding:22px;
     border-radius:22px;
     background:rgba(255,255,255,.68);
-    box-shadow:0 8px 22px rgba(49,92,64,.08)
+    box-shadow:0 8px 22px rgba(49,92,64,.08);
+	width: 350px;
 }
 
 .page-info-card h3 {
@@ -1234,3 +1258,368 @@ iframe {
     }
 }
 
+.workshop-card {
+    display: grid;
+    grid-template-columns: 280px 1fr 265px;
+    width: 100%;
+    min-height: 150px;
+    background: #fff;
+    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.16);
+    align-items: stretch;
+	margin-top: 10px;
+	    background: rgba(240,246,236,.74);
+}
+
+.workshop-meta {
+    padding: 2rem 1.8rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #4d535c;
+    line-height: 1.5;
+}
+
+.workshop-meta p {
+    margin: 0 0 0.35rem;
+}
+
+.workshop-info {
+    padding: 1.8rem 2rem;
+    color: #4d535c;
+}
+
+.workshop-info h2 {
+    margin: 0 0 0.2rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #555b64;
+}
+
+.workshop-info p {
+    margin: 0;
+    max-width: 560px;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    letter-spacing: 0.05em;
+}
+.workshops-intro{
+	text-align: center;
+	
+}
+.workshop-image {
+    width: 265px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+
+.workshop-list {
+    max-width: 1138px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .workshop-card {
+        grid-template-columns: 1fr;
+    }
+
+    .workshop-image {
+        width: 100%;
+        height: 220px;
+    }
+}
+.contact-page {
+    padding: 6rem 2rem;
+    background:
+        radial-gradient(circle at top left, rgba(255, 90, 40, 0.12), transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+    color: #333;
+}
+
+.contact-hero {
+    max-width: 780px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.contact-kicker {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    color: #ff4b1f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-hero h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    color: #222;
+}
+
+.contact-hero p {
+    margin: 0 auto;
+    max-width: 620px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+.contact-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.4rem;
+}
+
+.contact-card {
+    padding: 2rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 65px rgba(0, 0, 0, 0.12);
+}
+
+.contact-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 1.5rem;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: #ff4b1f;
+    font-size: 1.5rem;
+}
+
+.contact-card h2 {
+    margin: 0 0 0.65rem;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.contact-card p,
+.contact-card a {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.contact-card a:hover {
+    color: #ff4b1f;
+}
+
+@media (max-width: 950px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .contact-page {
+        padding: 4rem 1.2rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.about-page {
+  background: #f8fafc;
+  color: #111827;
+}
+
+.hero {
+  padding: 110px 24px;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.68), rgba(15, 23, 42, 0.68)),
+    url("/images/about-hero.jpg") center/cover;
+  color: white;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero .eyebrow {
+  color: #93c5fd;
+}
+
+.hero h1 {
+  margin: 16px 0;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1.05;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+}
+
+.about-intro {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px 40px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-intro h2,
+.section-header h2 {
+  margin: 12px 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.about-intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+.mission-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.mission-grid article {
+  background: white;
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.07);
+}
+
+.mission-grid h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.mission-grid p {
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+.team-section {
+  padding: 80px 24px 100px;
+  background: white;
+}
+
+.section-header {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.section-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.team-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.team-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+  transition: 0.25s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+
+.image-wrapper {
+  height: 280px;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 24px;
+}
+
+.role {
+  color: #2563eb;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.card-content h3 {
+  margin: 8px 0 10px;
+  font-size: 1.4rem;
+}
+
+.card-content p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  .about-intro,
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 80px 20px;
+  }
+}
+.about-intro {
+    display: block;
+    max-width: 900px;
+    margin: 0 auto 5rem;
+}
+
+.about-intro h2 {
+    margin-bottom: 1rem;
+}
