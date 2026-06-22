@@ -2,9 +2,11 @@
 window.HomeView = {
     props: ["language", "texts", "routes"],
     computed: {
-        cards() {
-            return this.routes.map(route => route.card[this.language]);
-        }
+      cards() {
+    return this.routes
+        .map(route => route.card?.[this.language])
+        .filter(card => card && !card.hidden);
+}
     },
     methods: {
         backgroundStyle(image) {

@@ -46,8 +46,8 @@ menuToggle.addEventListener('click', () => {
                     <span class="language-code">{{ language === 'de' ? 'DE' : 'EN' }}</span>
                 </button>
 
-                <a class="menu-link" href="#/kontakt">{{ texts.menu.contact }}</a>
-                <a class="menu-link" href="#/ueber-uns">{{ texts.menu.about }}</a>
+                <a class="menu-link" href="#/Kontakt">{{ texts.menu.contact }}</a>
+                <a class="menu-link" href="#/about">{{ texts.menu.about }}</a>
             </nav>
         `
     },
